@@ -169,6 +169,16 @@ textarea.form-input, .contact-wrap textarea { min-height: 130px; }
 label { color: var(--ink); font-size: 14px; font-weight: 700; }
 iframe { max-width: 100%; }
 
+body.scroll-reveal-ready [data-scroll-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.25,1);
+}
+body.scroll-reveal-ready [data-scroll-reveal].is-scroll-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .site-whatsapp {
   position: fixed;
   right: 20px;
@@ -213,4 +223,5 @@ iframe { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  body.scroll-reveal-ready [data-scroll-reveal] { opacity: 1; transform: none; transition: none; }
 }

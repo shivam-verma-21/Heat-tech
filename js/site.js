@@ -20,6 +20,52 @@
   var currentPage = window.location.pathname.split("/").pop() || "index.html";
   document.body.classList.add(currentPage === "index.html" ? "home-page" : "inner-page");
 
+  if (!document.body.classList.contains("about-page") &&
+      "IntersectionObserver" in window &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var revealSelector = "main > section, main section, body > section, main .home-product-card, main .product-card, main .solution-grid > article";
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-scroll-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -40px 0px", threshold: 0.06 });
+
+    function observeRevealTargets(root) {
+      var targets = [];
+      if (root.nodeType === 1 && root.matches(revealSelector)) {
+        targets.push(root);
+      }
+      if (root.querySelectorAll) {
+        targets = targets.concat(Array.prototype.slice.call(root.querySelectorAll(revealSelector)));
+      }
+      targets.forEach(function (target) {
+        if (!target.hasAttribute("data-scroll-reveal")) {
+          target.setAttribute("data-scroll-reveal", "");
+        }
+        if (!target.classList.contains("is-scroll-visible")) {
+          revealObserver.observe(target);
+        }
+      });
+    }
+
+    observeRevealTargets(document);
+    if (document.body) {
+      document.body.classList.add("scroll-reveal-ready");
+      new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+          mutation.addedNodes.forEach(function (node) {
+            if (node.nodeType === 1) {
+              observeRevealTargets(node);
+            }
+          });
+        });
+      }).observe(document.body, { childList: true, subtree: true });
+    }
+  }
+
   var requestedProduct = new URLSearchParams(window.location.search).get("product");
   if (requestedProduct) {
     var productSelect = document.getElementById("contact-form-product");

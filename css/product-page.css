@@ -239,25 +239,28 @@
 .product-enquiry-form__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .product-form-field { min-width: 0; }
 .product-form-field--full { grid-column: 1 / -1; }
-.product-form-field label { display: block; margin: 0 0 6px; color: var(--product-ink); font-size: 11px; font-weight: 700; }
+.product-form-field label { display: block; margin: 0 0 7px; color: var(--product-ink); font-size: 13px; font-weight: 700; }
 .product-form-field input,
 .product-form-field select,
 .product-form-field textarea {
   display: block;
   width: 100%;
-  min-height: 43px;
-  padding: 10px 11px;
+  min-height: 47px;
+  padding: 11px 12px;
   border: 1px solid #cbd7e1;
   border-radius: 6px;
   background: #fff;
   color: var(--product-ink);
-  font: 12px/1.5 "Montserrat", "Segoe UI", Arial, sans-serif;
+  font: 14px/1.5 "Montserrat", "Segoe UI", Arial, sans-serif;
 }
-.product-form-field textarea { min-height: 108px; resize: vertical; }
+.product-form-field textarea { min-height: 130px; resize: vertical; }
 .product-form-field input:focus,
 .product-form-field select:focus,
 .product-form-field textarea:focus { border-color: #2388a0; outline: 3px solid rgba(56,183,206,.2); }
-.product-form-field .product-button { width: 100%; min-height: 45px; cursor: pointer; }
+.product-form-field .product-button { width: 100%; min-height: 49px; cursor: pointer; }
+.product-form-field .product-button:disabled { cursor: wait; opacity: .7; transform: none; }
+.product-enquiry-form [data-whatsapp-status]:not(:empty) { margin: 12px 0 0; padding: 10px 12px; border: 1px solid #cde2eb; border-radius: 7px; background: #f1f8fb; color: #21617a; font-size: 13px; line-height: 1.6; }
+.product-enquiry-form [data-whatsapp-fallback] { display: block; margin-top: 8px; color: #116a91; font-size: 13px; font-weight: 700; text-align: center; text-decoration: underline; text-underline-offset: 3px; }
 
 .product-section-heading--row { display: flex; max-width: none; align-items: end; justify-content: space-between; gap: 20px; }
 .product-section-heading--row > a { flex: 0 0 auto; margin-bottom: 17px; color: var(--product-blue); font-size: 12px; font-weight: 800; text-decoration: none; }
