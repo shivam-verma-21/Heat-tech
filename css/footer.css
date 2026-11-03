@@ -45,7 +45,7 @@ heat-tech-footer { display: block; }
   padding-bottom: 48px;
 }
 .site-footer__grid > * { min-width: 0; }
-.site-footer h2 {
+body .site-footer h2 {
   position: relative;
   margin: 3px 0 24px;
   padding-bottom: 13px;
