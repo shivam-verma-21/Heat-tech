@@ -1,0 +1,29 @@
+.pro{
+  width:330px;
+  height:300px;
+  background-color:lightgray;
+  border-radius:20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin: block;
+ }
+ .pro1{
+ text-align: center;
+ font-size:25px;
+ font-weight: bold;
+ font-family: verdena;
+}
+ .hover{
+        margin-left:auto;
+        margin-right:auto;
+        display: block;
+        border: 1px solid black;
+        border-radius: 10px;
+        margin-bottom: 20px;
+
+      }
+    
+      .hover button:hover{
+        background-color: skyblue;
+        border-radius: 10px;
+      }
